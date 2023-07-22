@@ -5,5 +5,12 @@ export namespace CONSTANTS {
 export namespace ROUTES {
   export const LOGIN = 'login';
   export const HOME = 'home';
+
+}
+
+
+export namespace ENDPOINT {
+  export const DOCUMENT_TYPE = 'documentType';
+
 }
 

@@ -1,18 +1,9 @@
 import { NgModule } from '@angular/core';
 import { NoPreloading, RouterModule, Routes } from '@angular/router';
-import { ROUTES } from './constants/app.constants';
+import { PAGE_ROUTES } from '@routes/routes';
 
-const routes: Routes = [
-  {
-    path: ROUTES.HOME,
-    loadComponent: () => import('./pages/home/home.component'),
-  },
-  {
-    path: ROUTES.LOGIN,
-    loadComponent: () => import('./pages/login/login.component'),
-  },
-  { path: '**', redirectTo: 'home' },
-];
+
+const routes: Routes = PAGE_ROUTES
 
 @NgModule({
   imports: [

@@ -7,6 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
 
 const modules = [
   MatProgressBarModule,
@@ -17,6 +21,10 @@ const modules = [
   MatSnackBarModule,
   MatFormFieldModule,
   MatIconModule,
+  MatToolbarModule,
+  MatMenuModule,
+  MatDialogModule,
+  MatSelectModule,
 ];
 
 @NgModule({

@@ -3,6 +3,15 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@services/*": ["src/app/services/*"],
+      "@constants/*": ["src/app/constants/*"],
+      "@models/*": ["src/app/models/*"],
+      "@pages/*": ["src/app/pages/*"],
+      "@routes/*": ["src/app/routes/*"],
+      "@angular-material/*": ["src/app/angular-material/*"],
+      "@components/*": ["src/app/components/*"],
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
