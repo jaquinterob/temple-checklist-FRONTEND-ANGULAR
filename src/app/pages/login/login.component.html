@@ -1,1 +1,44 @@
-<p>login works!</p>
+<mat-card class="login-card">
+  <mat-card-header>
+    <mat-card-title>Temple checklist</mat-card-title>
+    <mat-card-subtitle>Iniciar sesión</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field class="full-width">
+        <mat-label>Usuario</mat-label>
+        <input formControlName="user" matInput />
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input
+          formControlName="pass"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      (click)="login()"
+      mat-raised-button
+      color="primary"
+      class="full-width"
+    >
+      Iniciar sesión
+    </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-progress-bar *ngIf="loader" mode="indeterminate"></mat-progress-bar>
+  </mat-card-footer>
+</mat-card>
