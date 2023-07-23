@@ -20,14 +20,19 @@ import { TravelerCardComponent } from '@components/traveler-card/traveler-card.c
 })
 export default class HomeComponent implements OnInit {
   travelers!: Traveler[];
+  loader = false;
   constructor(private readonly travelerService: TravelerService) {}
   ngOnInit(): void {
     this.getAllTravelers();
   }
   getAllTravelers(): void {
+    this.loader = true;
     this.travelerService.getAllTravelers().subscribe({
       next: (travelers: Traveler[]) => {
-        this.travelers = travelers;
+        setTimeout(() => {
+          this.travelers = travelers;
+          this.loader = false;
+        }, 2000);
       },
     });
   }

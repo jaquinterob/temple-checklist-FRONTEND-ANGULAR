@@ -9,6 +9,7 @@ export interface Traveler {
   age: number;
   cellPhone: string;
   leader: boolean;
+  active: boolean;
   creationDate: Date;
   documentType: DocumentType;
   travel: Travel;

@@ -3,3 +3,7 @@
   *ngFor="let traveler of travelers"
   [traveler]="traveler"
 ></app-traveler-card>
+<div *ngIf="!travelers && !loader" class="no-travelers">No se encontraron travelers</div>
+<mat-progress-bar *ngIf="loader" class="bottom-bar" mode="indeterminate"></mat-progress-bar>
+
+
