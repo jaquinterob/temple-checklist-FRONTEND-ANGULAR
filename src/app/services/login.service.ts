@@ -9,13 +9,17 @@ import { DocumentType } from '@models/traveler';
   providedIn: 'root',
 })
 export class LoginService {
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient
+  ) {}
 
   login(user: User): Observable<any> {
     return this.http.post(`${CONSTANTS.URL_BASE}/user/${ROUTES.LOGIN}`, user);
   }
 
-  getAllDocumentType():Observable<DocumentType[]>{
-    return this.http.get<DocumentType[]>(`${CONSTANTS.URL_BASE}/${ENDPOINT.DOCUMENT_TYPE}`)
+  getAllDocumentType(): Observable<DocumentType[]> {
+    return this.http.get<DocumentType[]>(
+      `${CONSTANTS.URL_BASE}/${ENDPOINT.DOCUMENT_TYPE}`
+    );
   }
 }

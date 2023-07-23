@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const modules = [
   MatProgressBarModule,
@@ -25,6 +26,7 @@ const modules = [
   MatMenuModule,
   MatDialogModule,
   MatSelectModule,
+  MatCheckboxModule,
 ];
 
 @NgModule({

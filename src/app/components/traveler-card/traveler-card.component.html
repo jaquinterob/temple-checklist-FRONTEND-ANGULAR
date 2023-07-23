@@ -1,0 +1,17 @@
+<div class="flex-way">
+  <div class="card-container">
+    <div class="name">{{ traveler.name }}</div>
+    <div class="lastname">{{ traveler.lastName }}</div>
+    <div class="document">
+      {{ traveler.documentType.name }} {{ traveler.document }}
+    </div>
+    <div class="cell-phone">Celular: {{ traveler.cellPhone }}</div>
+    <div class="temple">Templo: {{ traveler.travel.temple }}</div>
+    <div class="traveler-type">{{ traveler.travelerType.name }}</div>
+    <div class="age">{{ traveler.age }} años</div>
+    <div class="leader">{{ traveler.leader ? "Lider" : "" }}</div>
+    <div (click)="showModalPayments()" class="payments payments-action">
+      Pagos: {{ traveler.payments.length }}
+    </div>
+  </div>
+</div>

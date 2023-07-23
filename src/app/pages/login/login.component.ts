@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { TravelerService } from '@services/traveler.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export default class LoginComponent {
     private readonly snack: MatSnackBar,
     private readonly fb: FormBuilder,
     private readonly loginService: LoginService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly travelerService: TravelerService
   ) {
     this.initForm();
   }
@@ -53,6 +55,7 @@ export default class LoginComponent {
           }
         },
         error: () => {
+          this.travelerService.showServerError()
           this.loader = false;
         },
       });

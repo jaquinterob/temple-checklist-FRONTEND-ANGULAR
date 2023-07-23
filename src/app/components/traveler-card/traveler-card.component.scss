@@ -1,0 +1,60 @@
+.card-container {
+  margin: 4px;
+  padding: 10px;
+  border: 1px solid #3f51b5;
+  position: relative;
+  border-radius: 4px;
+
+  .name {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .lastname {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .age {
+    text-align: right;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+  }
+  .traveler-type {
+    text-align: right;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+  .leader {
+    text-align: right;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    color: #ffffff;
+    border: 1px solid;
+    padding: 0px 7px;
+    border-radius: 4px;
+    background: #3f85b5;
+  }
+
+  .payments-action {
+    bottom: 11px;
+    right: 10px;
+    color: #3f51b5;
+    border: 1px solid;
+    padding: 0px 7px;
+    border-radius: 4px;
+    background: #ffffff;
+    width: fit-content;
+    position: absolute;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .flex-way {
+    display: flex;
+    justify-content: center;
+  }
+  .card-container {
+    width: 400px;
+  }
+}

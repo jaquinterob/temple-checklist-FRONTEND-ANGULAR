@@ -12,11 +12,59 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Documento</mat-label>
+      <input formControlName="document" matInput />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Nombres</mat-label>
+      <input formControlName="name" matInput />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Apellidos</mat-label>
+      <input formControlName="lastName" matInput />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Edad</mat-label>
+      <input (change)="onChangeAge($event.target)" type="number" formControlName="age" matInput />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Celular</mat-label>
+      <input type="number" formControlName="cellPhone" matInput />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Selecciona viaje</mat-label>
+      <mat-select formControlName="travelId">
+        <mat-option *ngFor="let travel of travels" [value]="travel.uuid">
+          {{ travel.temple }} <br />{{ travel.date | date }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p *ngIf="form.get('age')?.value > 17">
+      <mat-checkbox formControlName="leader">Es un lider?</mat-checkbox>
+    </p>
+    <mat-form-field class="full-width">
+      <mat-label>Tipo de viajero</mat-label>
+      <mat-select [disabled]="form.get('age')?.value > 17" formControlName="travelerTypeId">
+        <mat-option
+          *ngFor="let travelerType of travelerTypes"
+          [value]="travelerType.uuid"
+        >
+          {{ travelerType.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
   </form>
 </div>
-<!-- <pre>{{ form.value | json }}</pre> -->
 <div mat-dialog-actions class="actions">
-  <button mat-raised-button color="primary" cdkFocusInitial>Guardar</button>
-  <button mat-button>Cancelar</button>
+  <button
+    [disabled]="form.invalid"
+    class="full-width"
+    mat-raised-button
+    color="primary"
+    cdkFocusInitial
+    (click)="saveTraveler()"
+  >
+    Guardar Traveler
+  </button>
 </div>
-
