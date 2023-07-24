@@ -21,10 +21,14 @@ import { TravelerCardComponent } from '@components/traveler-card/traveler-card.c
 export default class HomeComponent implements OnInit {
   travelers!: Traveler[];
   loader = false;
+
   constructor(private readonly travelerService: TravelerService) {}
+
   ngOnInit(): void {
     this.getAllTravelers();
+    this.getTravelerReload();
   }
+
   getAllTravelers(): void {
     this.loader = true;
     this.travelerService.getAllTravelers().subscribe({
@@ -33,6 +37,14 @@ export default class HomeComponent implements OnInit {
           this.travelers = travelers;
           this.loader = false;
         }, 2000);
+      },
+    });
+  }
+
+  getTravelerReload(): void {
+    this.travelerService.getTravelerReload$().subscribe({
+      next: () => {
+        this.getAllTravelers()
       },
     });
   }

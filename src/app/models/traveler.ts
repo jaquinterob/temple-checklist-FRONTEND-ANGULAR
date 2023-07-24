@@ -28,6 +28,8 @@ export interface Payment {
   date: Date;
   amount: number;
   travelerId: string;
+  methodId: string;
+  method: Method;
 }
 
 export interface Travel {
@@ -38,6 +40,11 @@ export interface Travel {
 }
 
 export interface TravelerType {
+  uuid: string;
+  name: string;
+}
+
+export interface Method {
   uuid: string;
   name: string;
 }

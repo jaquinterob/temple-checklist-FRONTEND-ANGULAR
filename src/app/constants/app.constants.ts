@@ -12,4 +12,6 @@ export namespace ENDPOINT {
   export const TRAVEL = 'travel';
   export const TRAVELER_TYPE = 'travelerType';
   export const TRAVELER = 'traveler';
+  export const PAYMENT = 'payment';
+  export const METHOD = 'method';
 }

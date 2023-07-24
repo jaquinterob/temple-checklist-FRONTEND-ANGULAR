@@ -95,6 +95,7 @@ export class CreateTravelerComponent implements OnInit {
       next: (traveler: Traveler) => {
         if (traveler) {
           this.dialog.closeAll();
+          this.travelerService.setTravelerReload();
           this.snack.open('Traveler guardado satisfactoriamente', 'ok', {
             duration: 4000,
           });

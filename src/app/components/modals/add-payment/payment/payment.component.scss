@@ -1,0 +1,28 @@
+.container {
+  border: 1px solid #2b377b;
+  padding: 10px;
+  border-radius: 4px;
+  background: #f1f1f1;
+  font-weight: 100;
+  position: relative;
+
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .amount {
+    color: #2b377b;
+    font-weight: 600;
+  }
+}
+.red {
+  color: white !important;
+  background-color: red !important;
+}
+
+.icon-delete {
+  position: absolute;
+  right: -7px;
+  bottom: -4px;
+}

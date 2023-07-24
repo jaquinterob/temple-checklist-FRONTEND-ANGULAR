@@ -10,7 +10,7 @@
     <div class="traveler-type">{{ traveler.travelerType.name }}</div>
     <div class="age">{{ traveler.age }} años</div>
     <div class="leader">{{ traveler.leader ? "Lider" : "" }}</div>
-    <div (click)="showModalPayments()" class="payments payments-action">
+    <div [ngClass]="{'red': traveler.payments.length === 0}"(click)="showModalPayments()" class="payments payments-action">
       Pagos: {{ traveler.payments.length }}
     </div>
   </div>

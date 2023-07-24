@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Pagos</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field class="full-width">
+      <mat-label>Monto a registrar</mat-label>
+      <input type="number" formControlName="amount" matInput />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <mat-label>Tipo de documento</mat-label>
+      <mat-select formControlName="methodId">
+        <mat-option *ngFor="let method of methods" [value]="method.uuid">
+          {{ method.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      [disabled]="form.invalid"
+      (click)="addPayment()"
+      mat-raised-button
+      color="primary"
+      class="full-width"
+    >
+      Agregar
+    </button>
+  </form>
+  <br />
+  <hr />
+  <div>
+    <div>
+      Total pagado:
+      <strong>{{
+        totalPaymentCalculator() | currency : "USD" : true : "2.0"
+      }}</strong>
+    </div>
+    <br />
+    <app-payment
+      *ngFor="let payment of payments"
+      [payment]="payment"
+    ></app-payment>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close class="full-width">Cerrar</button>
+</div>
