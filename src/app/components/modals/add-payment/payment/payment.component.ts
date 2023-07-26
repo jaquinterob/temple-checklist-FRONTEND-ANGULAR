@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Payment } from '@models/traveler';
 import { AngularMaterialModule } from '@angular-material/angular-material.module';
 import { TravelerService } from '@services/traveler.service';
-import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

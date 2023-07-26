@@ -29,7 +29,7 @@
     <div>
       Total pagado:
       <strong>{{
-        totalPaymentCalculator() | currency : "USD" : true : "2.0"
+        totalPaymentCalculator() | currency : "USD" : true : "1.0"
       }}</strong>
     </div>
     <br />
@@ -39,6 +39,16 @@
     ></app-payment>
   </div>
 </div>
+<button
+  (click)="deleteTraveler()"
+  mat-raised-button
+  color="warn"
+  class="full-width fix-margin"
+>
+  Borrar Traveler
+</button>
+<br />
+<br />
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close class="full-width">Cerrar</button>
 </div>

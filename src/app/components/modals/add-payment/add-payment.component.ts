@@ -11,6 +11,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { TravelerService } from '@services/traveler.service';
 import { Method, Payment, Traveler } from '@models/traveler';
 import { PaymentComponent } from './payment/payment.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-payment',
@@ -32,7 +33,8 @@ export class AddPaymentComponent implements OnInit {
     private readonly fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public traveler: Traveler,
     private readonly travelerService: TravelerService,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private readonly snack: MatSnackBar
   ) {
     this.initForm();
     this.payments = traveler.payments;
@@ -78,5 +80,21 @@ export class AddPaymentComponent implements OnInit {
     let add = 0;
     this.payments.forEach((e) => (add += e.amount));
     return add;
+  }
+
+  deleteTraveler(): void {
+    this.travelerService.deleteTraveler(this.traveler.uuid).subscribe({
+      next: () => {
+        this.snack.open('Traveler eliminado correctamente', 'ok', {
+          duration: 4000,
+        });
+        this.dialog.closeAll()
+        this.travelerService.setTravelerReload();
+      },
+      error: (error: any) => {
+        console.error(error);
+        this.travelerService.showServerError();
+      },
+    });
   }
 }

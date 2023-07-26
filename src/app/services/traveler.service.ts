@@ -76,6 +76,13 @@ export class TravelerService {
     );
   }
 
+  deleteTraveler(uuid: string): Observable<any> {
+    return this.http.delete(
+      `${CONSTANTS.URL_BASE}/${ENDPOINT.TRAVELER}/${uuid}`
+    );
+  }
+
+
   showServerError(): void {
     this.dialog.open(ServerErrorComponent);
   }

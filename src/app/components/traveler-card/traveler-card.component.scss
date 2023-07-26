@@ -58,6 +58,15 @@
     justify-content: center;
   }
   .card-container {
-    width: 400px;
+    width: 500px;
   }
+}
+
+.amount {
+  font-weight: bolder;
+  position: absolute;
+  bottom: 30px;
+  right: 13px;
+  font-size: 11px;
+  color: #26476a;
 }
