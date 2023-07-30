@@ -42,7 +42,6 @@ export class CreateTravelerComponent implements OnInit {
   getAllDocumentsType(): void {
     this.travelerService.getAllDocumentType().subscribe({
       next: (documentTypes) => {
-        console.log(documentTypes);
         this.documentTypes = documentTypes as unknown as DocumentType[];
       },
       error: (error: any) => {

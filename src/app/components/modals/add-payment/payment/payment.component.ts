@@ -31,7 +31,7 @@ export class PaymentComponent {
       },
       error: (error: HttpErrorResponse) => {
         console.error('Error en la petición:', error.message);
-        console.log('HTTP status:', error.status);
+        console.error('HTTP status:', error.status);
         this.travelerService.showServerError();
       },
     });

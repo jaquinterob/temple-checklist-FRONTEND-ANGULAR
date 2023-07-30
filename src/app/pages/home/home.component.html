@@ -1,9 +1,23 @@
 <app-menu></app-menu>
-<app-traveler-card
-  *ngFor="let traveler of travelers"
-  [traveler]="traveler"
-></app-traveler-card>
-<div *ngIf="!travelers && !loader" class="no-travelers">No se encontraron travelers</div>
-<mat-progress-bar *ngIf="loader" class="bottom-bar" mode="indeterminate"></mat-progress-bar>
-
-
+<div class="home-container">
+  <mat-form-field class="full-width">
+    <mat-label>Filtro</mat-label>
+    <mat-select (valueChange)="onChangeFilter($event)" value="all">
+      <mat-option *ngFor="let search of searches" [value]="search.value">
+        {{ search.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <app-traveler-card
+    *ngFor="let traveler of travelersForFilter"
+    [traveler]="traveler"
+  ></app-traveler-card>
+  <div *ngIf="!travelers && !loader" class="no-travelers">
+    No se encontraron travelers
+  </div>
+  <mat-progress-bar
+    *ngIf="loader"
+    class="bottom-bar"
+    mode="indeterminate"
+  ></mat-progress-bar>
+</div>

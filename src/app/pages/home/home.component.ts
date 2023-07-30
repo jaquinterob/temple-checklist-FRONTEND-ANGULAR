@@ -5,6 +5,8 @@ import { MenuComponent } from 'src/app/menu/menu.component';
 import { TravelerService } from '@services/traveler.service';
 import { Traveler } from '@models/traveler';
 import { TravelerCardComponent } from '@components/traveler-card/traveler-card.component';
+import { Search } from '@models/search';
+import { FilterService } from '@services/filter.service';
 
 @Component({
   selector: 'app-home',
@@ -20,9 +22,40 @@ import { TravelerCardComponent } from '@components/traveler-card/traveler-card.c
 })
 export default class HomeComponent implements OnInit {
   travelers!: Traveler[];
+  travelersForFilter!: Traveler[];
   loader = false;
 
-  constructor(private readonly travelerService: TravelerService) {}
+  searches: Search[] = [
+    {
+      value: 'all',
+      name: 'Todos los travelers',
+    },
+    {
+      value: 'some-payment',
+      name: 'Travelers con pagos',
+    },
+    {
+      value: 'no-payments',
+      name: 'Travelers sin pagos',
+    },
+    {
+      value: 'young-men',
+      name: 'Hombres Jóvenes',
+    },
+    {
+      value: 'young-women',
+      name: 'Mujeres Jóvenes',
+    },
+    {
+      value: 'adults',
+      name: 'Adultos',
+    },
+  ];
+
+  constructor(
+    private readonly travelerService: TravelerService,
+    private readonly filterService: FilterService
+  ) {}
 
   ngOnInit(): void {
     this.getAllTravelers();
@@ -35,6 +68,7 @@ export default class HomeComponent implements OnInit {
       next: (travelers: Traveler[]) => {
         setTimeout(() => {
           this.travelers = travelers;
+          this.travelersForFilter = this.travelers;
           this.loader = false;
         }, 2000);
       },
@@ -44,8 +78,15 @@ export default class HomeComponent implements OnInit {
   getTravelerReload(): void {
     this.travelerService.getTravelerReload$().subscribe({
       next: () => {
-        this.getAllTravelers()
+        this.getAllTravelers();
       },
     });
+  }
+
+  onChangeFilter(value: string): void {
+    this.travelersForFilter = this.filterService.filtering(
+      this.travelers,
+      value
+    );
   }
 }

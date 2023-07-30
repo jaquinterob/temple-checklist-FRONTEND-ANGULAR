@@ -23,11 +23,8 @@ export class TravelerCardComponent implements OnInit {
   }
 
   calculateAmount(): void {
-    console.log(this.traveler);
     try {
       this.traveler.payments.forEach((e) => {
-        console.log(e);
-
         this.amount += e.amount;
       });
     } catch (error) {

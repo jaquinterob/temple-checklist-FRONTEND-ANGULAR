@@ -1,12 +1,21 @@
-.no-travelers{
+.no-travelers {
   margin-top: 10vh;
   text-align: center;
   font-style: italic;
   color: gray;
-
 }
 
-.bottom-bar{
+.bottom-bar {
   position: fixed;
   bottom: 0px;
+}
+
+.home-container {
+}
+
+@media only screen and (min-width: 600px) {
+  .home-container {
+    max-width: 500px;
+    margin: auto;
+  }
 }
